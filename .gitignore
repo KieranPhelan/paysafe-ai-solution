@@ -2,3 +2,4 @@
 .venv
 /brief
 /__pycache__
+*.xlsx
