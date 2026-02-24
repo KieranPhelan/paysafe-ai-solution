@@ -9,6 +9,10 @@ class AssistantAnalysis(BaseModel):
     summary: str = Field(
         description="""Single sentence summary of the customer's issue"""
     )
+    summary_confidence: float = Field(
+        ge=0.0, le=1.0,
+        description="""Confidence score for summary (0.0 to 1.0)""",
+    )
     intent: str = Field(
         description=(
             """Primary intent category. One of: 
@@ -20,9 +24,15 @@ class AssistantAnalysis(BaseModel):
             other"""
         )
     )
-    confidence: float = Field(
+    intent_confidence: float = Field(
         ge=0.0, le=1.0,
         description="""Confidence score for intent category (0.0 to 1.0)""",
+    )
+    key_details: str = Field(
+        description="""Key information from the customer message, e.g. 
+        phone numbers,
+        dates,
+        reference numbers"""
     )
     escalation_needed: bool = Field(
         description=(
@@ -30,11 +40,13 @@ class AssistantAnalysis(BaseModel):
             to a senior agent or specialist team"""
         )
     )
-    key_entities: str = Field(
-        description="""Key information from the customer message, e.g. 
-        phone numbers,
-        dates,
-        reference numbers"""
+    escalation_confidence: float = Field(
+        ge=0.0, le=1.0,
+        description="""Confidence score for escalation decision (0.0 to 1.0)""",
+    )
+    escalation_reason: str | None = Field(
+        None,
+        description="""If escalation is needed, a brief reason why""",
     )
     suggested_action: str = Field(
         description=(
@@ -43,4 +55,8 @@ class AssistantAnalysis(BaseModel):
             'escalate_to_fraud_team',
             'check_account_restrictions'"""
         )
+    )
+    action_confidence: float = Field(
+        ge=0.0, le=1.0,
+        description="""Confidence score for suggested action (0.0 to 1.0)""",
     )
