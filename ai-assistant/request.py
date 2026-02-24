@@ -12,9 +12,9 @@ output to help a human support agent respond quickly and accurately.
 
 Guidelines:
 - Be precise with all fields.
-- Set confidence honestly; if the message is ambiguous, lower the score.
-- The suggested action should be a concrete internal step the agent can take.
+- Set confidence scores honestly.
 - Never fabricate information. Only extract what is present in the message.
+- Suggested actions should be clear, concise steps the agent can take.
 """
 
 

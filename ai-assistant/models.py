@@ -50,10 +50,7 @@ class AssistantAnalysis(BaseModel):
     )
     suggested_action: str = Field(
         description=(
-            """The recommended internal action for the agent, e.g. 
-            'reset_password',
-            'escalate_to_fraud_team',
-            'check_account_restrictions'"""
+            """The recommended internal action for the agent"""
         )
     )
     action_confidence: float = Field(
