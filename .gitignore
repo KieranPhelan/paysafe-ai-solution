@@ -1,5 +1,5 @@
 .env
 .venv
 /brief
-/__pycache__
+*/__pycache__
 *.xlsx
