@@ -1,6 +1,0 @@
-pylint
-openai
-python-dotenv
-pydantic
-pandas
-openpyxl
